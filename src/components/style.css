@@ -1,0 +1,169 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    background-image: url(/public/layered-steps-haikei.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    overflow-y: hidden;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: linear-gradient(90deg, rgba(109, 108, 119, 1) 0%, rgba(251, 251, 251, 1) 21%, rgba(251, 251, 251, 1) 82%, rgba(140, 142, 152, 1) 100%);
+}
+
+/*TODOS FILE STYLES*/
+
+.nobg {
+    border: none;
+    background-color: rgba(240, 248, 255, 0);
+}
+
+.between {
+    padding: 0 5px 0 5px;
+}
+
+.whitebg {
+    background-color: white;
+    padding: 0 5px 0 5px;
+    border-radius: 20px;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.right {
+    right: 10px;
+    top: 5px;
+}
+
+.svg {
+    color: red;
+}
+
+.relative {
+    /*Parent*/
+    position: relative;
+    margin: 10px 0 10px 0;
+}
+
+.todo-txt {
+    /*Child*/
+    padding: 4px 8px 3px 10px;
+    font-size: 20px;
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    border: 3px solid rgba(31, 30, 30, 0.565);
+    background-color: rgba(255, 255, 255, 0);
+    transition: all .5s;
+
+}
+
+.todo-txt:hover {
+    box-shadow: -3px -1px 36px -9px rgba(0, 0, 0, 0.6) inset;
+    -webkit-box-shadow: -3px -1px 36px -9px rgba(0, 0, 0, 0.6) inset;
+    -moz-box-shadow: -3px -1px 36px -9px rgba(0, 0, 0, 0.6) inset;
+}
+
+.todo-txt:focus {
+    box-shadow: -3px -1px 36px -9px rgba(0, 0, 0, 0.6) inset;
+    -webkit-box-shadow: -3px -1px 36px -9px rgba(0, 0, 0, 0.6) inset;
+    -moz-box-shadow: -3px -1px 36px -9px rgba(0, 0, 0, 0.6) inset;
+}
+
+.todo-txt:focus {
+    outline: none;
+}
+
+/*APP FILE STYLES*/
+.main {
+    width: 30vw;
+    padding: 30px 20px 30px 20px;
+    /*glass*/
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /*shadow*/
+    box-shadow: 1px 3px 37px 9px rgba(0, 0, 0, 0.8);
+    -webkit-box-shadow: 1px 3px 37px 9px rgba(0, 0, 0, 0.8);
+    -moz-box-shadow: 1px 3px 37px 9px rgba(0, 0, 0, 0.8);
+}
+
+.scroll {
+    overflow-y: scroll;
+    border-bottom: 3px solid rgba(31, 30, 30, 0.565);
+    height: 28vw;
+}
+
+.center {
+    color: black;
+    margin: 10px 0px 10px 0px;
+    text-align: center;
+    font-size: 50px;
+}
+
+/*FORM FILE STYLES*/
+.form-txt {
+    font-size: 20px;
+    border-bottom: 1px solid black;
+    background-color: rgba(193, 25, 25, 0);
+    width: 100%;
+    height: 50px;
+    border-radius: 7px;
+    padding: 3px 10px 3px 10px;
+    transition: all .5s;
+    color: rgb(0, 0, 0);
+    border: 3px solid rgba(31, 30, 30, 0.565);
+
+}
+
+.form-txt:focus {
+    outline: none;
+
+}
+
+.form-txt:hover {
+    box-shadow: -3px -1px 36px -9px rgba(0, 0, 0, 0.6) inset;
+    -webkit-box-shadow: -3px -1px 36px -9px rgba(0, 0, 0, 0.6) inset;
+    -moz-box-shadow: -3px -1px 36px -9px rgba(0, 0, 0, 0.6) inset;
+}
+
+.form-txt:focus {
+    box-shadow: -3px -1px 36px -9px rgba(0, 0, 0, 0.6) inset;
+    -webkit-box-shadow: -3px -1px 36px -9px rgba(0, 0, 0, 0.6) inset;
+    -moz-box-shadow: -3px -1px 36px -9px rgba(0, 0, 0, 0.6) inset;
+}
+
+.form-txt::placeholder {
+    color: rgb(0, 0, 0);
+}
+
+.submit-btn {
+    width: 100%;
+    height: 40px;
+    margin: 12px 0 10px 0;
+    border: 3px solid rgba(31, 30, 30, 0.565);
+    background-color: greenyellow;
+    display: block;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 18px;
+    transition: .5s;
+}
+
+.submit-btn:hover {
+    background-color: rgb(149, 199, 75);
+}
