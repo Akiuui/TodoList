@@ -3,7 +3,7 @@ import { useState } from "react";
 import PrintTodo from "./PrintTodo";
 
 
-function Form() {
+function Form({ showPopup, setShowPopup }) {
 
     const [input, setInput] = useState("");
     const [todo, setTodo] = useState([]);
@@ -27,9 +27,8 @@ function Form() {
                     <input className="form-txt" type="text" value={input} placeholder="Enter a todo..." onChange={event => setInput(event.target.value)} />
                     <button className="submit-btn">Add a todo</button>
                 </form>
-                <div className="scroll">
-                    <PrintTodo todo={todo} />
-                </div>
+                <PrintTodo todo={todo} setTodo={setTodo} showPopup={showPopup} setShowPopup={setShowPopup} />
+
             </div>
 
         </>

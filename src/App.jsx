@@ -5,11 +5,13 @@ import "./components/style.css";
 
 function App() {
 
+  const [showPopup, setShowPopup] = useState(false);
+
   return (
     <>
       <Routes>
 
-        <Route path='/' element={<Form />}></Route>
+        <Route path='/' element={<Form showPopup={showPopup} setShowPopup={setShowPopup} />}></Route>
 
 
       </Routes>

@@ -22,33 +22,101 @@ body {
 
 /*TODOS FILE STYLES*/
 
+
+.gray {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 120vh;
+    background-color: rgba(211, 211, 211, 0.55);
+}
+
+#dangersvg {
+    padding: 0 20px 0 10px;
+}
+
+.buttonwidth {
+    width: 50%;
+    height: 10%;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    background-color: rgba(255, 0, 0, 0);
+}
+
+#popup p {
+    margin-top: 20px;
+}
+
+#popup {
+    font-size: 20px;
+    font-weight: 500;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 30%;
+    height: 40%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    background-color: rgb(255, 255, 255);
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
 .nobg {
     border: none;
     background-color: rgba(240, 248, 255, 0);
 }
 
+.circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 100%;
+    background-color: rgba(255, 0, 0, 0);
+    border: 3px solid #a3a0a0;
+    margin: 0 3px 0 3px;
+    transition: .2s;
+}
+
+.circle:hover {
+    border: 3px solid rgb(81, 164, 165);
+    transform: scale(107%);
+
+}
+
 .between {
-    padding: 0 5px 0 5px;
+    padding: 1px 1px 1px 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .whitebg {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.982);
     padding: 0 5px 0 5px;
     border-radius: 20px;
 }
 
 .absolute {
+    display: flex;
+    align-items: center;
     position: absolute;
 }
 
 .right {
-    right: 10px;
-    top: 5px;
+    right: 5.5px;
+    top: 3px;
 }
 
-.svg {
-    color: red;
-}
 
 .relative {
     /*Parent*/
