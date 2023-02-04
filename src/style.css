@@ -1,0 +1,266 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    background-image: url(/public/blob-scatter-haikei.svg);
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    overflow-y: hidden;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: linear-gradient(90deg, rgba(109, 108, 119, 1) 0%, rgba(251, 251, 251, 1) 21%, rgba(251, 251, 251, 1) 82%, rgba(140, 142, 152, 1) 100%);
+}
+
+/*TODOS FILE STYLES*/
+
+
+.gray {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 120vh;
+    background-color: rgba(211, 211, 211, 0.55);
+}
+
+#dangersvg {
+    padding: 0 20px 0 10px;
+}
+
+.buttonwidth {
+    width: 50%;
+    height: 10%;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    background-color: rgba(255, 0, 0, 0);
+}
+
+#popup p {
+    margin-top: 20px;
+}
+
+#popupdelete {
+    color: rgb(219, 69, 69);
+    border: 2px solid rgb(219, 69, 69);
+    transition: .5s;
+}
+
+#popupdelete:hover {
+    background-color: rgba(204, 153, 153, 0.699);
+}
+
+.svgdelete {
+    transition: 1s;
+}
+
+#popup {
+    font-size: 20px;
+    font-weight: 500;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 30%;
+    height: 40%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    background-color: rgb(255, 255, 255);
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.nobg {
+    border: none;
+    background-color: rgba(240, 248, 255, 0);
+}
+
+.circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 100%;
+    background-color: rgba(255, 0, 0, 0);
+    border: 3px solid #a3a0a0;
+    margin: 0 3px 0 3px;
+    transition: .2s;
+}
+
+.circle:hover {
+    border: 3px solid rgb(81, 164, 165);
+    transform: scale(107%);
+
+}
+
+.between {
+    padding: 1px 1px 1px 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.whitebg {
+    background-color: rgba(255, 255, 255, 0.982);
+    padding: 0 5px 0 5px;
+    border-radius: 20px;
+}
+
+.absolute {
+    display: flex;
+    align-items: center;
+    position: absolute;
+}
+
+.left {
+    left: 5.5px;
+    top: 8px;
+}
+
+.right {
+    right: 5.5px;
+    top: 8px;
+}
+
+#formcss {
+    padding: 20px 20px 0px 20px;
+}
+
+#todocss {
+    /* margin: 0px 20px 0px 20px; */
+}
+
+.relative {
+    /*Parent*/
+    position: relative;
+    margin: 10px 0 10px 0;
+}
+
+.todo-txt {
+    /*Child*/
+    padding: 4px 8px 6px 60px;
+    font-size: 20px;
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-bottom: 1px solid #a3a0a0;
+    /* border-radius: 10px; */
+    /* border: 3px solid rgba(31, 30, 30, 0.565); */
+    background-color: rgba(255, 255, 255, 0);
+    transition: all .5s;
+
+}
+
+.todo-txt:hover {
+    box-shadow: -3px -1px 36px -9px rgba(0, 0, 0, 0.6) inset;
+    -webkit-box-shadow: -3px -1px 36px -9px rgba(0, 0, 0, 0.6) inset;
+    -moz-box-shadow: -3px -1px 36px -9px rgba(0, 0, 0, 0.6) inset;
+}
+
+.todo-txt:focus {
+    box-shadow: -3px -1px 36px -9px rgba(0, 0, 0, 0.6) inset;
+    -webkit-box-shadow: -3px -1px 36px -9px rgba(0, 0, 0, 0.6) inset;
+    -moz-box-shadow: -3px -1px 36px -9px rgba(0, 0, 0, 0.6) inset;
+}
+
+.todo-txt:focus {
+    outline: none;
+}
+
+/*APP FILE STYLES*/
+.main {
+    width: 50vw;
+    /*glass*/
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /*shadow*/
+    box-shadow: 1px 3px 37px 9px rgba(0, 0, 0, 0.8);
+    -webkit-box-shadow: 1px 3px 37px 9px rgba(0, 0, 0, 0.8);
+    -moz-box-shadow: 1px 3px 37px 9px rgba(0, 0, 0, 0.8);
+}
+
+.scroll {
+    overflow-y: scroll;
+    border-bottom: 3px solid rgba(31, 30, 30, 0.565);
+    height: 30vw;
+    margin-bottom: 3px;
+}
+
+.center {
+    color: black;
+    margin: 10px 0px 10px 0px;
+    text-align: center;
+    font-size: 50px;
+}
+
+/*FORM FILE STYLES*/
+.form-txt {
+    font-size: 20px;
+    border-bottom: 1px solid black;
+    background-color: rgba(193, 25, 25, 0);
+    width: 100%;
+    height: 50px;
+    border-radius: 7px;
+    padding: 3px 10px 3px 10px;
+    transition: all .5s;
+    color: rgb(0, 0, 0);
+    border: 3px solid rgba(31, 30, 30, 0.565);
+
+}
+
+.form-txt:focus {
+    outline: none;
+
+}
+
+.form-txt:hover {
+    box-shadow: -3px -1px 36px -9px rgba(0, 0, 0, 0.6) inset;
+    -webkit-box-shadow: -3px -1px 36px -9px rgba(0, 0, 0, 0.6) inset;
+    -moz-box-shadow: -3px -1px 36px -9px rgba(0, 0, 0, 0.6) inset;
+}
+
+.form-txt:focus {
+    box-shadow: -3px -1px 36px -9px rgba(0, 0, 0, 0.6) inset;
+    -webkit-box-shadow: -3px -1px 36px -9px rgba(0, 0, 0, 0.6) inset;
+    -moz-box-shadow: -3px -1px 36px -9px rgba(0, 0, 0, 0.6) inset;
+}
+
+.form-txt::placeholder {
+    color: rgb(0, 0, 0);
+}
+
+.submit-btn {
+    width: 100%;
+    height: 40px;
+    margin: 12px 0 10px 0;
+    border: 3px solid rgba(31, 30, 30, 0.565);
+    background-color: greenyellow;
+    display: block;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 18px;
+    transition: .5s;
+}
+
+.submit-btn:hover {
+    background-color: rgb(149, 199, 75);
+}

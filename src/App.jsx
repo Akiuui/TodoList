@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import Form from './components/Form'
 import { useState } from 'react'
-import "./components/style.css";
+import "./style.css";
 
 function App() {
 
