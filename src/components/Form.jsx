@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import PrintTodo from "./PrintTodo";
 
 
@@ -7,6 +8,9 @@ function Form({ showPopup, setShowPopup }) {
 
     const [input, setInput] = useState("");
     const [todo, setTodo] = useState([]);
+    const [isSaved, setIsSaved] = useState(false);
+
+
 
 
     function FormSubmit(event) {
@@ -23,18 +27,24 @@ function Form({ showPopup, setShowPopup }) {
     return (
         <>
             <h1 className="center">Todo List</h1>
+            {/* <button className="submit-btn">Add a todo</button> */}
+            <Link to="/completed">
+                <button>Go to new route</button>
+            </Link>
 
             <div className='main'>
                 <div id="formcss">
                     <form onSubmit={FormSubmit}>
                         <input className="form-txt" type="text" value={input} placeholder="Enter a todo..." onChange={event => setInput(event.target.value)} />
-                        <button className="submit-btn">Add a todo</button>
                     </form>
                 </div>
-                <div id="todocss">
-                    <PrintTodo todo={todo} setTodo={setTodo} showPopup={showPopup} setShowPopup={setShowPopup} />
-                </div>
+
+                <PrintTodo todo={todo} setTodo={setTodo} showPopup={showPopup} setShowPopup={setShowPopup} isSaved={isSaved} setIsSaved={setIsSaved} />
+
             </div>
+
+            {isSaved ? <div className="popups show">Saved</div> : <div className="popups">Saved</div>}
+
 
         </>
     )
