@@ -1,11 +1,16 @@
 import React, { useState, useRef } from "react";
 import PopUp from "./PopUp";
+import EventListeners from "./EventListeners";
 
-function PrintTodo({ todo, setTodo, showPopup, setShowPopup }) {
+function PrintTodo({ todo, setTodo, showPopup, setShowPopup, isSaved, setIsSaved }) {
 
   const [input2, setInput2] = useState("");
-  const [deletedList, setDeletedList] = useState();
+  const [filteredList, setFilteredList] = useState([]);
+  const [completedList, setCompletedList] = useState([]);
+  const [isDecorated, setIsDecorated] = useState(false);
+
   const textboxRefs = useRef([]);
+  // const deleteEditBtnRefs = useRef([]);
 
 
   const PrintList = () => {
@@ -19,18 +24,18 @@ function PrintTodo({ todo, setTodo, showPopup, setShowPopup }) {
                 {/* Complete */}
                 <div className="absolute left whitebg">
                   <div className="circle">
-                    <button className="nobg between">
+                    <button className="nobg between" onClick={() => CompleteItem(e, index)}>
                       <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#464646" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                     </button>
                   </div>
                 </div>
-                {/* Complete */}
 
-                <form onSubmit={() => EditItem(e, index)}>
+                <form ref={el => (textboxRefs.current[index] = el)} onSubmit={() => EditItem(e, index)}>
 
-                  <input className="todo-txt" type="text" defaultValue={e.value} readOnly={e.editable} ref={el => (textboxRefs.current[index] = el)} />
+                  <input className={e.completed ? "todo-txt completing" : "todo-txt"} type="text" defaultValue={e.value} readOnly={e.editable}
+                    /*style={{ textDecoration: e.completed ? "line-through" : "none" }}*/ />
 
-                  < div className="absolute right whitebg">
+                  < div className="absolute right whitebg transition" /*ref={el => (deleteEditBtnRefs.current[index] = el)}*/>
 
                     {/* Delete */}
                     <div className="circle">
@@ -61,25 +66,53 @@ function PrintTodo({ todo, setTodo, showPopup, setShowPopup }) {
     )
   }
   const DeleteItem = (object, index) => {
-    const a = todo.filter(e => e.id != object.id)//Filters into a all elements that dont match the target id 
-    setDeletedList(a);
+    const a = todo.filter(e => e.id != object.id)//Filters into a all elements that dont match the target id
+    setFilteredList(a);
   }
 
   const EditItem = (object, index) => {
     const b = !object.editable
-    alert("Updated")
     const f = [...todo]
 
     const indexx = f.findIndex(item => item.id === object.id);
 
     f.splice(indexx, 1, { "id": object.id, "value": object.value, "completed": object.completed, "editable": b })
     setTodo(f);
+    setTimeout(() => textboxRefs.current[index][0].focus(), 100)
+    //setTimeout(() => textboxRefs.current[index][0].style.textDecoration = 'underline', 100)
 
     if (b == true) {
-      f.splice(indexx, 1, { "id": object.id, "value": textboxRefs.current[index].value, "completed": object.completed, "editable": b })
+      f.splice(indexx, 1, { "id": object.id, "value": textboxRefs.current[index][0].value, "completed": object.completed, "editable": b })
       setTodo(f);
+      setIsSaved(true)
+      setTimeout(() => setIsSaved(false), 2000)
+
 
     }
+  }
+  const CompleteItem = (object, index) => {
+    const b = todo.filter(e => e.id != object.id)//Filters into a all elements that dont match the target id    
+    setCompletedList([...completedList, { "id": object.id, "value": object.value, "completed": true, "editable": true }]);
+
+    const f = [...todo]
+
+    const indexx = f.findIndex(item => item.id === object.id);
+
+    f.splice(indexx, 1, { "id": object.id, "value": object.value, "completed": true, "editable": b })
+    setTodo(f);
+
+    setTimeout(() => setTodo(b), 300)
+  }
+
+  const Saved = () => {
+    return <>
+
+
+
+
+
+    </>
+
 
   }
 
@@ -88,8 +121,8 @@ function PrintTodo({ todo, setTodo, showPopup, setShowPopup }) {
       <div className="scroll">
         <PrintList />
       </div>
-      {showPopup ? <PopUp what="Delete" showPopup={showPopup} setShowPopup={setShowPopup} setFilteredList={setDeletedList} filteredList={deletedList} setTodo={setTodo} /> : null}
-
+      {showPopup ? <PopUp what="Delete" showPopup={showPopup} setShowPopup={setShowPopup} setFilteredList={setFilteredList} filteredList={filteredList} setTodo={setTodo} /> : null}
+      {/* <EventListeners textboxRefs={textboxRefs} deleteEditBtnRefs={deleteEditBtnRefs} /> */}
     </>
   )
 }
